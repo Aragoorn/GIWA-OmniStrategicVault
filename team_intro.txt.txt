@@ -1,0 +1,1 @@
+Solo Builder / Smart Contract Developer  Name / Persona: Aragoorn  Role: Lead Smart Contract & Web3 Developer  Core Expertise: Designing, testing, and deploying secure EVM-compatible smart contracts, UUPS upgradeable proxies, and automated DeFi vault infrastructures using Solidity, Hardhat, and TypeScript.  GitHub Profile: https://github.com/Aragoorn
