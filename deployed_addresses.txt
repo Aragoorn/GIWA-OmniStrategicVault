@@ -1,0 +1,9 @@
+========================================
+GIWA Omni Strategic Vault - Deployment Log
+========================================
+Network: GIWA Sepolia Testnet
+Compiler Version: 0.8.34
+
+Implementation Address: 0xd6CD32896FB14387cF37E63FA04d6bc37897A496
+Proxy Address (User Interaction): 0xb19d70B754Ffb132ffDDa379a835d177DABdD25e
+Developer / Builder: Aragoorn (https://github.com/Aragoorn)
