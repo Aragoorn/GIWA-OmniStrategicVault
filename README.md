@@ -10,6 +10,15 @@
 
 ---
 
+## 🚀 Deployed Contracts (GIWA Sepolia Testnet)
+
+* **Proxy Contract Address:** `0xb19d70B754Ffb132ffDDa379a835d177DABdD25e`
+* **Implementation Contract Address:** `0xd6CD32896FB14387cF37E63FA04d6bc37897A496`
+* **Network:** GIWA Sepolia Testnet
+* **Explorer Verification:** Verified and interactive via block explorer.
+
+---
+
 ## 🛠️ Core Architecture & Technical Features
 
 1. **Upgradeable UUPS Proxy Pattern (`UUPSUpgradeable`):**
@@ -34,10 +43,10 @@
 ```text
 GIWAOmniStrategicVault/
 ├── contracts/
-│   └── GIWAOmniStrategicVault.sol   # Main UUPS upgradeable vault contract
+│   └── GIWAOmniStrategicVault.sol     # Main UUPS upgradeable vault contract
 ├── scripts/
-│   └── deploy.ts                    # Hardhat deployment script for UUPS Proxy
-├── deployed_addresses.txt           # Live testnet deployment logs
-├── hardhat.config.ts                # Hardhat network & compiler configurations
-├── package.json                     # Project dependencies & scripts
-└── tsconfig.json                    # TypeScript configurations
+│   └── deploy.ts                      # Hardhat deployment script for UUPS Proxy
+├── deployed_addresses.txt             # Live testnet deployment logs
+├── hardhat.config.ts                  # Hardhat network & compiler configurations
+├── package.json                       # Project dependencies & scripts
+└── tsconfig.json                      # TypeScript configurations
