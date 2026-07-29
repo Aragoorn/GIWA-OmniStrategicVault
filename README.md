@@ -6,7 +6,7 @@
 
 ## 🌟 Overview
 
-**GIWAOmniStrategicVault** is a next-generation decentralized vault designed to bridge secure, non-custodial treasury management with automated execution strategies. Moving beyond traditional static vaults, this architecture combines future-proof upgradeability, granular access controls, programmatic time-locks (`Vesting`), and a dedicated authorization bridge for algorithmic trading bots or AI agents.
+**GIWAOmniStrategicVault** is a next-generation decentralized vault designed to bridge secure, non-custodial treasury management with automated execution strategies. Moving beyond traditional static vaults, this architecture combines future-proof upgradeability, granular access controls, programmatic time-locks (`Vesting`), and a dedicated authorization bridge for algorithmic trading bots or AI agents..
 
 ---
 
