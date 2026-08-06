@@ -14,7 +14,7 @@ describe("GIWAOmniStrategicVault", function () {
 
     const VaultFactory = await ethers.getContractFactory("GIWAOmniStrategicVault");
     
-    // دیپلوی به روش پروکسی UUPS
+    // Deploy using UUPS proxy pattern
     vault = (await upgrades.deployProxy(VaultFactory, [], {
       initializer: "initialize",
     })) as unknown as GIWAOmniStrategicVault;
@@ -33,27 +33,27 @@ describe("GIWAOmniStrategicVault", function () {
     const depositAmount = ethers.parseEther("1.0");
     const delay = 60; // 60 seconds
 
-    // ارسال اتر به قرارداد جهت تامین موجودی پرداخت و وستینگ
+    // Send Ether to the contract to fund payouts and vesting liquidity
     await owner.sendTransaction({
       to: await vault.getAddress(),
       value: ethers.parseEther("5.0"),
     });
 
-    // تنظیم وستینگ برای کاربر
+    // Set vesting for the user
     await vault.setVesting(user.address, depositAmount, delay);
 
-    // بررسی اطلاعات وستینگ ثبت شده
+    // Verify the registered vesting details
     const vestingInfo = await vault.userVestings(user.address);
     expect(vestingInfo.amount).to.equal(depositAmount);
 
-    // تلاش برای برداشت پیش از موعد (باید خطا دهد)
+    // Attempt to claim before the lock period expires (should revert)
     await expect(vault.connect(user).claimVesting()).to.be.revertedWith("Not released yet");
 
-    // افزایش زمان در شبکه تستی هاردهات (Fast-forward time)
+    // Fast-forward time in the Hardhat test network
     await ethers.provider.send("evm_increaseTime", [70]);
     await ethers.provider.send("evm_mine", []);
 
-    // برداشت موفق بعد از گذشت زمان
+    // Successful claim after the delay has passed
     await expect(vault.connect(user).claimVesting())
       .to.changeEtherBalance(user, depositAmount);
   });
@@ -61,7 +61,7 @@ describe("GIWAOmniStrategicVault", function () {
   it("Should allow authorized trading bot to execute trades", async function () {
     await vault.setTradingBot(tradingBot.address);
 
-    // ارسال موجودی به قرارداد
+    // Fund the contract with balance
     await owner.sendTransaction({
       to: await vault.getAddress(),
       value: ethers.parseEther("2.0"),
@@ -81,7 +81,7 @@ describe("GIWAOmniStrategicVault", function () {
   it("Should allow owner to upgrade the contract (UUPS)", async function () {
     const VaultFactoryV2 = await ethers.getContractFactory("GIWAOmniStrategicVault");
     
-    // تست ارتقاء پروکسی
+    // Test proxy upgrade
     const upgradedVault = await upgrades.upgradeProxy(
       await vault.getAddress(),
       VaultFactoryV2
