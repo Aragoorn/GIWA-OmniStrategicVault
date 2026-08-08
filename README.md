@@ -1,4 +1,4 @@
----
+<img width="1080" height="1020" alt="Screenshot (2061)" src="https://github.com/user-attachments/assets/3fd43add-4d89-40ee-a1e4-406dabe2728f" />
 
 ## 🌐 Live Demo & Deployment
 
