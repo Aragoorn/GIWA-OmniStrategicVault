@@ -1,3 +1,11 @@
+---
+
+## 🌐 Live Demo & Deployment
+
+* **Live Frontend Dashboard:** [Netlify Live App](https://exquisite-crumble-c17a69.netlify.app)
+* **GIWA Explorer (Proxy Address):** [0xb19d70B754Ffb132ffDDa379a835d177DABdD25e](https://sepolia.giwa.io)
+* **Network:** GIWA Sepolia Testnet
+* **Compiler Version:** Solidity 0.8.34
 # 🛡️ GIWA Omni Strategic Vault
 
 > Enterprise-grade, UUPS upgradeable smart contract infrastructure engineered for advanced asset management, time-locked vesting, and secure AI-driven trading execution within the **GIWA** ecosystem.
