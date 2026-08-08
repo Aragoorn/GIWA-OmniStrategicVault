@@ -18,7 +18,7 @@
 
 ---
 
-## 🚀 Deployed Contracts (GIWA Sepolia Testnet)
+## 🚀 Deployed Contracts (GIWA Sepolia Testnet) 
 
 * **Proxy Contract Address:** `0xb19d70B754Ffb132ffDDa379a835d177DABdD25e`
 * **Implementation Contract Address:** `0xd6CD32896FB14387cF37E63FA04d6bc37897A496`
