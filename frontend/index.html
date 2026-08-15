@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GIWA Omni Strategic Vault – Live Demo</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="logo-area">
+      <div class="pulse-dot"></div>
+      <h1>GIWA Omni Strategic Vault</h1>
+      <span class="badge">UUPS + ReentrancyGuard</span>
+    </div>
+    <div>
+      <span class="network-badge">GIWA Sepolia</span>
+      <button id="connectBtn" class="btn-primary">Connect Wallet</button>
+    </div>
+  </header>
+
+  <main class="dashboard">
+    <!-- Hero -->
+    <section class="hero">
+      <div>
+        <h2>Live Interactive Demo</h2>
+        <p>
+          Real contract on GIWA Sepolia. Connect your wallet to read state, 
+          try functions and verify access control yourself.
+        </p>
+      </div>
+      <div class="status-card">
+        <h3>Contract Status</h3>
+        <div class="status-row"><span>Proxy</span> <code id="proxyAddr">0xb19d...D25e</code></div>
+        <div class="status-row"><span>Owner</span> <code id="ownerAddr">–</code></div>
+        <div class="status-row"><span>Trading Bot</span> <code id="botAddr">–</code></div>
+        <div class="status-row"><span>Vault Balance</span> <span id="vaultBalance" class="verified">–</span></div>
+      </div>
+    </section>
+
+    <!-- Actions -->
+    <section class="grid">
+      <!-- Read / Info -->
+      <div class="card">
+        <h3>Read Contract State</h3>
+        <p class="card-desc">Anyone can call these view functions.</p>
+        <button id="refreshBtn" class="btn-action">Refresh State</button>
+        <button id="checkVestingBtn" class="btn-action" style="background: #0f766e;">Check My Vesting</button>
+      </div>
+
+      <!-- Console -->
+      <div class="card console-card">
+        <div class="console-header">
+          <span>Live Console</span>
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+        <div id="console" class="console-body">
+          [System] Ready. Connect wallet to interact with live contract.<br>
+        </div>
+      </div>
+    </section>
+
+    <!-- Advanced Actions -->
+    <section class="grid">
+      <div class="card">
+        <h3>Owner Functions (will fail if not owner)</h3>
+        <div class="form-group">
+          <label>Set Trading Bot Address</label>
+          <input id="newBotInput" placeholder="0x..." />
+        </div>
+        <button id="setBotBtn" class="btn-action">setTradingBot()</button>
+
+        <div class="form-group" style="margin-top:12px;">
+          <label>Process Payment (recipient, amount in ETH)</label>
+          <input id="payToInput" placeholder="Recipient 0x..." />
+          <input id="payAmountInput" placeholder="0.1" style="margin-top:6px;" />
+        </div>
+        <button id="payBtn" class="btn-action">processPayment()</button>
+      </div>
+
+      <div class="card">
+        <h3>Vesting & AI Trade</h3>
+        <div class="form-group">
+          <label>Set Vesting (beneficiary, amount ETH, delay seconds)</label>
+          <input id="vestToInput" placeholder="Beneficiary 0x..." />
+          <input id="vestAmountInput" placeholder="0.5" style="margin-top:6px;" />
+          <input id="vestDelayInput" placeholder="60" style="margin-top:6px;" />
+        </div>
+        <button id="setVestBtn" class="btn-action">setVesting()</button>
+
+        <button id="claimBtn" class="btn-action" style="margin-top:12px; background:#059669;">claimVesting()</button>
+        <button id="execTradeBtn" class="btn-action" style="margin-top:8px; background:#7c3aed;">executeTrade() (Bot only)</button>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+      <div class="feature">
+        <h4>UUPS Upgradeable</h4>
+        <p>Implementation can be upgraded while keeping the same proxy address and all state.</p>
+      </div>
+      <div class="feature">
+        <h4>ReentrancyGuard</h4>
+        <p>All value-moving functions are protected against reentrancy attacks.</p>
+      </div>
+      <div class="feature">
+        <h4>Strict Access Control</h4>
+        <p>onlyOwner + only authorized tradingBot. Try the buttons to verify.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>GIWA Omni Strategic Vault • Live on GIWA Sepolia</span>
+    <a href="https://sepolia.giwa.io/address/0xb19d70B754Ffb132ffDDa379a835d177DABdD25e" target="_blank">View on Explorer</a>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.0/dist/ethers.umd.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
