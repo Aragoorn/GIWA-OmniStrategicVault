@@ -3,13 +3,13 @@ GIWA Omni Strategic Vault - Deployment Log
 ========================================
 Network: GIWA Sepolia Testnet
 Chain ID: 91342
-Compiler Version: 0.8.24
+Compiler: Solidity 0.8.24
 
-Proxy Address (User Interaction): 0xb19d70B754Ffb132ffDDa379a835d177DABdD25e
+Proxy Address (Main): 0xb19d70B754Ffb132ffDDa379a835d177DABdD25e
 Explorer: https://sepolia-explorer.giwa.io/address/0xb19d70B754Ffb132ffDDa379a835d177DABdD25e
 
-Upgrade Status: Successfully upgraded via UUPS
-- Proxy address remained unchanged
-- Implementation updated with ReentrancyGuard + security improvements
+Implementation: (check with upgrades.erc1967.getImplementationAddress)
+Upgrade: Successfully performed via UUPS (Proxy address unchanged)
 
-Developer / Builder: Aragoorn (https://github.com/Aragoorn)
+Developer: Aragoorn
+GitHub: https://github.com/Aragoorn/GIWA-OmniStrategicVault
