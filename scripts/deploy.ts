@@ -1,19 +1,20 @@
+// scripts/deploy.ts
 import { ethers, upgrades } from "hardhat";
 
 async function main() {
-  const GIWAOmniStrategicVault = await ethers.getContractFactory("GIWAOmniStrategicVault");
+  const VaultFactory = await ethers.getContractFactory("GIWAOmniStrategicVault");
+  
   console.log("Deploying GIWAOmniStrategicVault (UUPS Proxy)...");
-
-  const vault = await upgrades.deployProxy(GIWAOmniStrategicVault, [], {
+  
+  const vault = await upgrades.deployProxy(VaultFactory, [], {
     initializer: "initialize",
+    kind: "uups",
   });
 
   await vault.waitForDeployment();
-  const proxyAddress = await vault.getAddress();
-  const implementationAddress = await upgrades.erc1967.getImplementationAddress(proxyAddress);
 
-  console.log("GIWAOmniStrategicVault Proxy deployed to:", proxyAddress);
-  console.log("Implementation address deployed to:", implementationAddress);
+  console.log("Proxy deployed to:", await vault.getAddress());
+  console.log("Implementation:", await upgrades.erc1967.getImplementationAddress(await vault.getAddress()));
 }
 
 main().catch((error) => {
